@@ -1,0 +1,112 @@
+# Netlify configuration for birunibridge.com (static site, no build step)
+[build]
+  publish = "."
+  command = ""
+
+# --- www -> apex ---
+[[redirects]]
+  from = "https://www.birunibridge.com/*"
+  to = "https://birunibridge.com/:splat"
+  status = 301
+  force = true
+
+# --- root: send visitors to their browser language (fallback English) ---
+[[redirects]]
+  from = "/"
+  to = "/ar/"
+  status = 302
+  force = true
+  conditions = {Language = ["ar"]}
+[[redirects]]
+  from = "/"
+  to = "/ru/"
+  status = 302
+  force = true
+  conditions = {Language = ["ru"]}
+[[redirects]]
+  from = "/"
+  to = "/es/"
+  status = 302
+  force = true
+  conditions = {Language = ["es"]}
+[[redirects]]
+  from = "/"
+  to = "/fr/"
+  status = 302
+  force = true
+  conditions = {Language = ["fr"]}
+[[redirects]]
+  from = "/"
+  to = "/ur/"
+  status = 302
+  force = true
+  conditions = {Language = ["ur"]}
+[[redirects]]
+  from = "/"
+  to = "/fa/"
+  status = 302
+  force = true
+  conditions = {Language = ["fa"]}
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 302
+  force = true
+
+# --- language 404 pages ---
+[[redirects]]
+  from = "/ar/*"
+  to = "/ar/404.html"
+  status = 404
+[[redirects]]
+  from = "/en/*"
+  to = "/en/404.html"
+  status = 404
+[[redirects]]
+  from = "/ru/*"
+  to = "/ru/404.html"
+  status = 404
+[[redirects]]
+  from = "/es/*"
+  to = "/es/404.html"
+  status = 404
+[[redirects]]
+  from = "/fr/*"
+  to = "/fr/404.html"
+  status = 404
+[[redirects]]
+  from = "/ur/*"
+  to = "/ur/404.html"
+  status = 404
+[[redirects]]
+  from = "/fa/*"
+  to = "/fa/404.html"
+  status = 404
+
+# --- security headers ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://docs.google.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*/thank-you/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+    Cache-Control = "no-store"

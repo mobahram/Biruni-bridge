@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /ar/thank-you/
+Disallow: /en/thank-you/
+Disallow: /ru/thank-you/
+Disallow: /es/thank-you/
+Disallow: /fr/thank-you/
+Disallow: /ur/thank-you/
+Disallow: /fa/thank-you/
+
+Sitemap: https://birunibridge.com/sitemap.xml
