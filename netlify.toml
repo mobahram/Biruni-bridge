@@ -3,6 +3,14 @@
   publish = "."
   command = ""
 
+# --- Netlify default subdomain -> custom domain (exact host only: deploy-preview-N--birunibridge.netlify.app
+#     and branch--birunibridge.netlify.app are different hosts and keep working) ---
+[[redirects]]
+  from = "https://birunibridge.netlify.app/*"
+  to = "https://birunibridge.com/:splat"
+  status = 301
+  force = true
+
 # --- www -> apex ---
 [[redirects]]
   from = "https://www.birunibridge.com/*"

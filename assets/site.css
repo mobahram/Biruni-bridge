@@ -602,3 +602,28 @@ a.cc.main[data-wa] .icb{background:rgba(255,255,255,.22);color:#fff}
 @media (max-width:420px){.fgrid4{grid-template-columns:1fr}}
 .band .fcard h4{color:var(--navy)}
 .band .fcard p{opacity:1}
+/* accreditation certificates block (site-wide footer) — existing palette vars only */
+.certs{margin-top:34px;border-top:1px solid var(--line);padding-top:24px}
+.certs h5{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.certs h5 .ico{width:18px;height:18px;color:var(--tq)}
+.certrow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cert{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff;margin:0}
+.cert>a{flex:0 0 96px;display:block;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.cert>a:focus-visible{outline:2px solid var(--tq);outline-offset:2px}
+.cert img{width:96px;height:auto;display:block}
+.cert figcaption{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--navy-70)}
+.cert figcaption b{color:var(--navy);font-size:13.5px}
+.cert .more{margin-top:6px;font-size:13px}
+.acc a{display:inline-flex}
+@media (max-width:640px){.certrow{grid-template-columns:1fr}.cert>a{flex-basis:80px}.cert img{width:80px}}
+
+/* 2026-10-20: WhatsApp buttons = navy #1A4382 text (and glyph) on green #25D366 */
+a[data-wa].btn,a[data-wa].btn:hover,a[data-wa].btn *,a[data-wa].btn .ico.wa-g,a[data-wa].btn bdi.wa-num{color:var(--navy)}
+a[data-wa].btn,a[data-wa].btn:hover{background:var(--wa);border-color:var(--wa)}
+/* English-fallback marker on links whose page has no version in the current language */
+.xl{display:inline-block;font:600 10px/1 Inter,sans-serif;letter-spacing:.04em;color:var(--navy-70);border:1px solid currentColor;border-radius:4px;padding:2px 4px;margin-inline-start:6px;vertical-align:middle}
+.more.qa-top{display:inline-flex;align-items:center;gap:8px;margin:18px 0 4px;font-weight:700}
+.qa h2{font-size:22px;margin:30px 0 8px}.qa p{margin:0}
+.qa-rel{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.qa-rel a{border:1px solid var(--line,#d8e3ef);border-radius:999px;padding:8px 14px;font-weight:600;color:var(--navy);background:#fff}
+
+.short.jacie{display:flex;gap:10px;align-items:flex-start;margin-top:16px}.short.jacie .ico{color:var(--tq);flex:none;width:22px;height:22px}.short.jacie span{color:var(--navy-70)}
