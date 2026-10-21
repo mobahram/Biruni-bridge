@@ -8,4 +8,77 @@ Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
 
+User-agent: Googlebot
+Allow: /
+Disallow: /ar/thank-you/
+Disallow: /en/thank-you/
+Disallow: /ru/thank-you/
+Disallow: /es/thank-you/
+Disallow: /fr/thank-you/
+Disallow: /ur/thank-you/
+Disallow: /fa/thank-you/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /ar/thank-you/
+Disallow: /en/thank-you/
+Disallow: /ru/thank-you/
+Disallow: /es/thank-you/
+Disallow: /fr/thank-you/
+Disallow: /ur/thank-you/
+Disallow: /fa/thank-you/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /ar/thank-you/
+Disallow: /en/thank-you/
+Disallow: /ru/thank-you/
+Disallow: /es/thank-you/
+Disallow: /fr/thank-you/
+Disallow: /ur/thank-you/
+Disallow: /fa/thank-you/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /ar/thank-you/
+Disallow: /en/thank-you/
+Disallow: /ru/thank-you/
+Disallow: /es/thank-you/
+Disallow: /fr/thank-you/
+Disallow: /ur/thank-you/
+Disallow: /fa/thank-you/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /ar/thank-you/
+Disallow: /en/thank-you/
+Disallow: /ru/thank-you/
+Disallow: /es/thank-you/
+Disallow: /fr/thank-you/
+Disallow: /ur/thank-you/
+Disallow: /fa/thank-you/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /ar/thank-you/
+Disallow: /en/thank-you/
+Disallow: /ru/thank-you/
+Disallow: /es/thank-you/
+Disallow: /fr/thank-you/
+Disallow: /ur/thank-you/
+Disallow: /fa/thank-you/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /ar/thank-you/
+Disallow: /en/thank-you/
+Disallow: /ru/thank-you/
+Disallow: /es/thank-you/
+Disallow: /fr/thank-you/
+Disallow: /ur/thank-you/
+Disallow: /fa/thank-you/
+
+User-agent: GPTBot
+Disallow: /
+
 Sitemap: https://birunibridge.com/sitemap.xml
