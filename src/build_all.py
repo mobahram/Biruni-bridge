@@ -287,8 +287,10 @@ def main() -> None:
     OUT.write_text(html, encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)} ({len(html)} bytes)")
     from build_guides import build_guides
+    from build_rest import build_rest
 
     build_guides()
+    build_rest()
 
 
 if __name__ == "__main__":

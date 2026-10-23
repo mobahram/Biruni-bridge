@@ -320,3 +320,7 @@ ONC = {
         "links": _links("fa", ["درمان سلولی و CAR-T", "پیوند مغز استخوان در ترکیه", "درمان سرطان در ترکیه", "مسیر بیمار", "پرسش‌های متداول", "چکاپ", "تماس"]),
     },
 }
+
+from copy_cell_intl import CELL_EXTRA
+
+CELL.update(CELL_EXTRA)

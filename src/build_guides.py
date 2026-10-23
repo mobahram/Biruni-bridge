@@ -246,16 +246,6 @@ def check_main(lang: str, ui: dict, page: dict, chevron: str, wa: str) -> str:
     hero = _hero(
         lang, ui, page, chevron, "/assets/img/tablet.jpg", page["img_alt"], ( "medical-centers", ui["centers"] )
     ).replace(_buttons(ui, ""), _buttons(ui, wa), 1)
-    # medical-centers index exists only in ar/en; keep the crumb on the local centers URL when it exists,
-    # otherwise point the mid crumb at the local homepage section is wrong. Guides languages have no
-    # centers index, so the mid crumb goes to the English page with no badge in the hero path.
-    # The caller passes centers label; href is corrected below for languages without the page.
-    if lang not in ("ar", "en"):
-        hero = hero.replace(
-            f'<a href="/{lang}/medical-centers/">{escape(ui["centers"])}</a>',
-            f'<a href="/en/medical-centers/" hreflang="en">{escape(ui["centers"])} {BADGE}</a>',
-            1,
-        )
     why = "".join(
         f'<div class="svc"><span class="icb soft">{_check_svg()}</span><h4>{escape(title)}</h4><p>{escape(text)}</p></div>'
         for title, text in page["why"]
@@ -358,12 +348,6 @@ def cell_main(lang: str, ui: dict, page: dict, chevron: str, wa: str) -> str:
         page["img_alt"],
         ("medical-centers", ui["centers"]),
     ).replace(_buttons(ui, ""), _buttons(ui, wa), 1)
-    if lang not in ("ar", "en"):
-        hero = hero.replace(
-            f'<a href="/{lang}/medical-centers/">{escape(ui["centers"])}</a>',
-            f'<a href="/en/medical-centers/" hreflang="en">{escape(ui["centers"])} {BADGE}</a>',
-            1,
-        )
     pillars = "".join(
         f'<div class="pillar"><div><h4>{escape(title)}</h4><p>{escape(text)}</p></div></div>'
         for title, text in page["pillars"]
@@ -644,7 +628,7 @@ def build_guides() -> int:
                 check_main(lang, ui, CHECK[lang], chev, wa),
                 [
                     (ui["home"], f"{SITE}/{lang}/"),
-                    (ui["centers"], f"{SITE}/en/medical-centers/"),
+                    (ui["centers"], f"{SITE}/{lang}/medical-centers/"),
                     (CHECK[lang]["crumb"], f"{SITE}/{lang}/check-up/"),
                 ],
             ),
@@ -663,7 +647,7 @@ def build_guides() -> int:
         article = cell_main(lang, ui, page, chev, wa)
         crumbs = [
             (ui["home"], f"{SITE}/{lang}/"),
-            (ui["centers"], f"{SITE}/en/medical-centers/"),
+            (ui["centers"], f"{SITE}/{lang}/medical-centers/"),
             (page["crumb"], f"{SITE}/{lang}/{CELL_SLUG}/"),
         ]
         _write(lang, CELL_SLUG, _assemble(lang, CELL_SLUG, page, article, crumbs))

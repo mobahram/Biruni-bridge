@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 GUIDE_LANGS = ("ru", "es", "fr", "ur", "fa")
-CELL_LANGS = ("ru", "es")
+CELL_LANGS = ("ru", "es", "fr", "ur", "fa")
 
 CHECK_LABEL = {"ru": "Чек-ап", "fr": "Bilan de santé"}
 HONEYPOT = {
