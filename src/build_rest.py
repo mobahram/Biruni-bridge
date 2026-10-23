@@ -170,6 +170,8 @@ def _render(lang: str, slug: str) -> str:
         key = _norm(raw)
         if not key:
             continue
+        if parent.name == "option" and parent.parent is not None and parent.parent.get("name") == "preferred_language":
+            continue
         new = _apply(raw, table)
         if new != raw:
             prefix = raw[: len(raw) - len(raw.lstrip())]
@@ -259,7 +261,6 @@ KEEP_EXACT = {
     "CLL",
     "MDS",
     "DICOM",
-    "SPECT-CT",
     "3T MRI",
     "Google Maps",
     "birunihospital.com",

@@ -79,12 +79,12 @@ add(
 )
 add("Modern technology", "Современное оборудование", "Tecnología actual", "Technologie actuelle", "جدید ٹیکنالوجی", "فناوری روز")
 add(
-    "3T MRI, low-dose CT, PET/CT, hybrid OR, robotic surgery, in-house genetics lab.",
-    "МРТ 3 Тл, низкодозная КТ, ПЭТ/КТ, гибридная операционная, роботическая хирургия, собственная генетическая лаборатория.",
-    "RM 3 T, TC de baja dosis, PET/TC, quirófano híbrido, cirugía robótica, laboratorio de genética propio.",
-    "IRM 3 T, scanner faible dose, TEP/TDM, bloc hybride, chirurgie robotique, laboratoire de génétique sur place.",
-    "3T ایم آر آئی، کم خوراک سی ٹی، PET/CT، ہائبرڈ آپریشن تھیٹر، روبوٹک سرجری، اپنی جینیات لیبارٹری۔",
-    "ام‌آرآی ۳ تسلا، سی‌تی با دوز کم، PET/CT، اتاق عمل هیبرید، جراحی رباتیک، آزمایشگاه ژنتیک داخلی.",
+    "3T MRI, low-dose CT, PET/CT, hybrid OR, robot-assisted surgery, in-house genetics lab.",
+    "МРТ 3 Тл, низкодозная КТ, ПЭТ/КТ, гибридная операционная, робот-ассистированная хирургия, собственная генетическая лаборатория.",
+    "RM 3 T, TC de baja dosis, PET/TC, quirófano híbrido, cirugía asistida por robot, laboratorio de genética propio.",
+    "IRM 3 T, scanner faible dose, TEP/TDM, bloc hybride, chirurgie assistée par robot, laboratoire de génétique sur place.",
+    "3T ایم آر آئی، کم خوراک سی ٹی، PET/CT، ہائبرڈ آپریشن تھیٹر، روبوٹ کی مدد سے سرجری، اپنی جینیات لیبارٹری۔",
+    "ام‌آرآی ۳ تسلا، سی‌تی با دوز کم، PET/CT، اتاق عمل هیبرید، جراحی با کمک ربات، آزمایشگاه ژنتیک داخلی.",
 )
 add("The hospital in figures", "Больница в цифрах", "El hospital en cifras", "L’hôpital en chiffres", "ہسپتال اعداد میں", "بیمارستان در عدد")
 add("Figures", "Цифры", "Cifras", "Chiffres", "اعداد", "عددها")
@@ -126,13 +126,14 @@ add("100-bed intensive care", "Реанимация на 100 коек", "Cuidado
 add("Neonatal, pediatric and adult intensive care units.", "Отделения реанимации для новорождённых, детей и взрослых.", "Unidades de cuidados intensivos neonatal, pediátrica y de adultos.", "Réanimations néonatale, pédiatrique et adulte.", "نوزائیدہ، بچوں اور بالغوں کی انتہائی نگہداشت۔", "مراقبت ویژهٔ نوزادان، کودکان و بزرگسالان.")
 add("3 Tesla MRI", "МРТ 3 Тесла", "RM de 3 teslas", "IRM 3 teslas", "3 ٹیسلا ایم آر آئی", "ام‌آرآی ۳ تسلا")
 add("High-resolution imaging for neurology, oncology and orthopedics.", "Изображения высокого разрешения для неврологии, онкологии и ортопедии.", "Imagen de alta resolución para neurología, oncología y ortopedia.", "Imagerie haute résolution pour la neurologie, l’oncologie et l’orthopédie.", "اعصاب، آنکولوجی اور آرتھوپیڈکس کے لیے ہائی ریزولوشن امیجنگ۔", "تصویر با وضوح بالا برای نورولوژی، انکولوژی و ارتوپدی.")
-add("Nuclear-medicine imaging that combines function and anatomy.", "Ядерно-медицинская визуализация, которая совмещает функцию и анатомию.", "Imagen de medicina nuclear que combina función y anatomía.", "Imagerie de médecine nucléaire qui associe fonction et anatomie.", "نیوکلئر میڈیسن کی امیجنگ جو کام اور ساخت کو جوڑتی ہے۔", "تصویر پزشکی هسته‌ای که کارکرد و کالبد را با هم نشان می‌دهد.")
+add("SPECT-CT", "ОФЭКТ-КТ (SPECT-CT)", "SPECT-TC", "TEMP-TDM (SPECT-CT)", "SPECT-CT", "SPECT-CT")
+add("Nuclear medicine imaging that combines anatomical and functional data.", "Радионуклидная диагностика, объединяющая анатомические и функциональные данные.", "Imagen de medicina nuclear que combina datos anatómicos y funcionales.", "Imagerie de médecine nucléaire qui associe des données anatomiques et fonctionnelles.", "نیوکلیئر میڈیسن کی امیجنگ جو تشریحی اور عملی ڈیٹا کو یکجا کرتی ہے۔", "تصویربرداری پزشکی هسته‌ای که داده‌های تشریحی و عملکردی را با هم ترکیب می‌کند.")
 add("Cardiac CT", "КТ сердца", "TC cardíaca", "Scanner cardiaque", "دل کی سی ٹی", "سی‌تی قلب")
 add("Non-invasive imaging of the heart and coronary arteries.", "Неинвазивная визуализация сердца и коронарных артерий.", "Imagen no invasiva del corazón y las arterias coronarias.", "Imagerie non invasive du cœur et des artères coronaires.", "دل اور کورونری شریانوں کی بغیر مداخلت امیجنگ۔", "تصویر غیرتهاجمی قلب و سرخرگ‌های کرونر.")
-add("Robotic orthopedic surgery", "Роботическая ортопедическая хирургия", "Cirugía ortopédica robótica", "Chirurgie orthopédique robotique", "روبوٹک آرتھوپیڈک سرجری", "جراحی ارتوپدی رباتیک")
+add("Robot-assisted orthopedic surgery", "Робот-ассистированная ортопедическая хирургия", "Cirugía ortopédica asistida por robot", "Chirurgie orthopédique assistée par robot", "روبوٹ کی مدد سے آرتھوپیڈک سرجری", "جراحی ارتوپدی با کمک ربات")
 add("Robot-assisted joint surgery for suitable patients.", "Робот-ассистированные операции на суставах для подходящих пациентов.", "Cirugía articular asistida por robot para pacientes adecuados.", "Chirurgie articulaire assistée par robot pour les patients adaptés.", "مناسب مریضوں کے لیے روبوٹ کی مدد سے جوڑوں کی سرجری۔", "جراحی مفصل با کمک ربات برای بیماران مناسب.")
-add("Robotic rehabilitation center", "Центр роботической реабилитации", "Centro de rehabilitación robótica", "Centre de rééducation robotique", "روبوٹک بحالی مرکز", "مرکز توانبخشی رباتیک")
-add("Robot-assisted rehabilitation for children and adults.", "Реабилитация с роботом для детей и взрослых.", "Rehabilitación asistida por robot para niños y adultos.", "Rééducation assistée par robot pour enfants et adultes.", "بچوں اور بالغوں کے لیے روبوٹ کی مدد سے بحالی۔", "توانبخشی با کمک ربات برای کودک و بزرگسال.")
+add("Robot-assisted rehabilitation center", "Центр робот-ассистированной реабилитации", "Centro de rehabilitación asistida por robot", "Centre de rééducation assistée par robot", "روبوٹ کی مدد سے بحالی کا مرکز", "مرکز توان‌بخشی با کمک ربات")
+add("Robot-assisted recovery technologies for children and adults.", "Роботизированные технологии восстановления для детей и взрослых.", "Tecnologías de recuperación asistidas por robot para niños y adultos.", "Technologies de rééducation assistées par robot pour enfants et adultes.", "بچوں اور بالغوں کے لیے روبوٹ کی مدد سے بحالی کی ٹیکنالوجیز۔", "فناوری‌های توان‌بخشی با کمک ربات برای کودکان و بزرگسالان.")
 add("Liver & kidney transplant units", "Отделения трансплантации печени и почки", "Unidades de trasplante de hígado y riñón", "Unités de transplantation hépatique et rénale", "جگر اور گردے کی پیوند کاری کے یونٹ", "بخش‌های پیوند کبد و کلیه")
 add("Transplant programs for adults and children, under Turkish law.", "Программы трансплантации для взрослых и детей по законодательству Турции.", "Programas de trasplante para adultos y niños, conforme a la ley turca.", "Programmes de transplantation pour adultes et enfants, selon le droit turc.", "بالغوں اور بچوں کے لیے پیوند کاری کے پروگرام، ترکی کے قانون کے تحت۔", "برنامه‌های پیوند برای بزرگسال و کودک، طبق قانون ترکیه.")
 add("Patients travelling from abroad", "Пациенты, которые приезжают из-за рубежа", "Pacientes que viajan desde el extranjero", "Patients qui voyagent depuis l’étranger", "بیرون ملک سے آنے والے مریض", "بیمارانی که از خارج سفر می‌کنند")

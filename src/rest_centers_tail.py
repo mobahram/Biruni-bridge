@@ -230,10 +230,10 @@ def load(add, same) -> None:
         "آرتھوپیڈک سرجن سفر سے پہلے ایکس رے اور MRI دیکھتے ہیں اور بتاتے ہیں کہ سرجری ضروری ہے یا دوسرا علاج کافی ہے۔ گھٹنے اور کولہے کی تبدیلی میں درست منصوبہ بندی اور انجام کے لیے روبوٹک نظام استعمال ہو سکتا ہے۔",
         "جراحان ارتوپدی پیش از سفر پرتونگاری و MRI را می‌بینند و توضیح می‌دهند جراحی لازم است یا درمان دیگر کافی است. برای تعویض زانو و لگن ممکن است سامانهٔ رباتیک برای برنامه‌ریزی و اجرای دقیق به کار رود.",
     )
-    add("Orthopedics and robotic surgery", "Ортопедия и роботическая хирургия", "Ortopedia y cirugía robótica", "Orthopédie et chirurgie robotique", "آرتھوپیڈکس اور روبوٹک سرجری", "ارتوپدی و جراحی رباتیک")
+    add("Orthopedics and robot-assisted surgery", "Ортопедия и робот-ассистированная хирургия", "Ortopedia y cirugía asistida por robot", "Orthopédie et chirurgie assistée par robot", "آرتھوپیڈکس اور روبوٹ کی مدد سے سرجری", "ارتوپدی و جراحی با کمک ربات")
     add("Recent X-rays and MRI if any.", "Недавние рентгенограммы и МРТ, если есть.", "Radiografías recientes y resonancia si las hay.", "Radiographies récentes et IRM s’il y en a.", "حالیہ ایکس رے اور MRI اگر ہوں۔", "پرتونگاری اخیر و MRI اگر باشد.")
     add("Robot-assisted where suitable.", "С роботом, где это подходит.", "Asistida por robot cuando es adecuada.", "Assistée par robot lorsque c’est adapté.", "جہاں موزوں ہو روبوٹ کی مدد سے۔", "با کمک ربات جایی که مناسب است.")
-    add("Robotic surgery", "Роботическая хирургия", "Cirugía robótica", "Chirurgie robotique", "روبوٹک سرجری", "جراحی رباتیک")
+    add("Robot-assisted surgery", "Робот-ассистированная хирургия", "Cirugía asistida por robot", "Chirurgie assistée par robot", "روبوٹ کی مدد سے سرجری", "جراحی با کمک ربات")
     add("Send your X-rays and reports", "Отправьте рентген и заключения", "Envíe sus radiografías e informes", "Envoyez vos radiographies et comptes rendus", "ایکس رے اور رپورٹس بھیجیں", "پرتونگاری و گزارش‌ها را بفرستید")
     add("Sports injuries", "Спортивные травмы", "Lesiones deportivas", "Blessures sportives", "کھیلوں کی چوٹیں", "آسیب ورزشی")
     add("Starts early after surgery.", "Начинается рано после операции.", "Empieza pronto después de la cirugía.", "Commence tôt après la chirurgie.", "سرجری کے بعد جلد شروع ہوتی ہے۔", "زود پس از جراحی شروع می‌شود.")
@@ -251,7 +251,7 @@ def load(add, same) -> None:
     )
     add("for joint replacement", "для эндопротезирования", "para la prótesis articular", "pour la prothèse articulaire", "جوڑ کی تبدیلی کے لیے", "برای تعویض مفصل")
     add("physiotherapy after surgery", "физиотерапия после операции", "fisioterapia después de la cirugía", "kinésithérapie après la chirurgie", "سرجری کے بعد فزیوتھراپی", "فیزیوتراپی پس از جراحی")
-    add("Orthopedics & robotic surgery in Istanbul | Biruni Bridge", "Ортопедия и роботическая хирургия в Стамбуле | Biruni Bridge", "Ortopedia y cirugía robótica en Estambul | Biruni Bridge", "Orthopédie et chirurgie robotique à Istanbul | Biruni Bridge", "استنبول میں آرتھوپیڈکس اور روبوٹک سرجری | Biruni Bridge", "ارتوپدی و جراحی رباتیک در استانبول | Biruni Bridge")
+    add("Orthopedics & robot-assisted surgery in Istanbul | Biruni Bridge", "Ортопедия и робот-ассистированная хирургия в Стамбуле | Biruni Bridge", "Ortopedia y cirugía asistida por robot en Estambul | Biruni Bridge", "Orthopédie et chirurgie assistée par robot à Istanbul | Biruni Bridge", "استنبول میں آرتھوپیڈکس اور روبوٹ کی مدد سے سرجری | Biruni Bridge", "ارتوپدی و جراحی با کمک ربات در استانبول | Biruni Bridge")
 
     # Pediatric hematology-oncology
     add("A parent stays with the child", "Родитель остаётся с ребёнком", "Un padre o una madre se queda con el niño", "Un parent reste avec l’enfant", "ایک والدین بچے کے ساتھ رہتے ہیں", "یک والد کنار کودک می‌ماند")

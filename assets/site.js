@@ -27,13 +27,15 @@ window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO
       var hp=f.querySelector('[name=bot-field]');if(hp&&hp.value)return;
       e.preventDefault();f.setAttribute('data-sent','1');
       var d={token:SH.token,page:location.pathname};
-      ['lang','source_page','name','country','phone','email','specialty','message'].forEach(function(n){var el=f.elements[n];if(el)d[n]=String(el.value||'').trim().slice(0,n==='message'?1500:200)});
+      ['lang','source_page','name','country','phone','email','specialty','message','preferred_language'].forEach(function(n){var el=f.elements[n];if(el)d[n]=String(el.value||'').trim().slice(0,n==='message'?1500:200)});
       d.kvkk_consent=f.elements.kvkk_consent&&f.elements.kvkk_consent.checked?'yes':'';
       d.marketing_consent=f.elements.marketing_consent&&f.elements.marketing_consent.checked?'yes':'no';
+      var note='\n\n[Page: '+(d.source_page||d.page||'')+' | Marketing consent: '+d.marketing_consent+' | Preferred language: '+(d.preferred_language||'-')+']';
+      if(f.elements.message){f.elements.message.value=(d.message||'-')+note}
       var done=false,go=function(){if(done)return;done=true;HTMLFormElement.prototype.submit.call(f)};
       var jobs=[];
       try{if(SH.url)jobs.push(fetch(SH.url,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}))}catch(x){}
-      try{if(GF.action&&GF.entries){var q=new URLSearchParams();var g={};Object.keys(d).forEach(function(k){g[k]=d[k]});g.message=(d.message||'-')+'\n\n[Page: '+(d.source_page||d.page||'')+' | Marketing consent: '+d.marketing_consent+']';Object.keys(GF.entries).forEach(function(k){if(k!=='token')q.append(GF.entries[k],(g[k]===undefined||g[k]==='')?'-':g[k])});
+      try{if(GF.action&&GF.entries){var q=new URLSearchParams();var g={};Object.keys(d).forEach(function(k){g[k]=d[k]});g.message=(d.message||'-')+note;Object.keys(GF.entries).forEach(function(k){if(k!=='token')q.append(GF.entries[k],(g[k]===undefined||g[k]==='')?'-':g[k])});
         jobs.push(fetch(GF.action,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/x-www-form-urlencoded'},body:q.toString()}))}}catch(x){}
       if(!jobs.length){go()}else{var left=jobs.length;jobs.forEach(function(j){j.then(function(){if(--left===0)go()},function(){if(--left===0)go()})})}
       setTimeout(go,2500);                                          /* never block the Netlify submission */
