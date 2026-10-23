@@ -121,6 +121,9 @@ def main() -> None:
     pages = _patch_language_pages()
     _patch_sitemap()
     urdu = _patch_urdu_links()
+    from build_guides import install_guides
+
+    install_guides()
     sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
     ur_locs = sitemap.count(f"<loc>{SITE}/ur/{CART_SLUG}/</loc>")
     ur_alts = sitemap.count(UR_SITEMAP)

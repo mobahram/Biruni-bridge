@@ -616,6 +616,18 @@ a.cc.main[data-wa] .icb{background:rgba(255,255,255,.22);color:#fff}
 .cert .more{margin-top:6px;font-size:13px}
 .acc a{display:inline-flex}
 @media (max-width:640px){.certrow{grid-template-columns:1fr}.cert>a{flex-basis:80px}.cert img{width:80px}}
+/* Keep the fixed WhatsApp button above the Netlify badge corner and the cookie bar, and leave room to scroll the form's Send button clear. */
+.fab{bottom:calc(88px + env(safe-area-inset-bottom, 0px))}
+body{padding-bottom:calc(112px + env(safe-area-inset-bottom, 0px))}
+.fcard button.btn{scroll-margin-bottom:160px}
+.staypic{border-radius:18px;aspect-ratio:16/9;object-fit:cover;width:100%;display:block}
+@media (max-width:640px){
+ .fab{bottom:calc(156px + env(safe-area-inset-bottom, 0px))}
+ body{padding-bottom:calc(220px + env(safe-area-inset-bottom, 0px))}
+ .ck{bottom:calc(220px + env(safe-area-inset-bottom, 0px))}
+ .fcard button.btn{scroll-margin-bottom:220px}
+ .fnote{margin-bottom:8px}
+}
 
 /* 2026-10-20: WhatsApp buttons = navy #1A4382 text (and glyph) on green #25D366 */
 a[data-wa].btn,a[data-wa].btn:hover,a[data-wa].btn *,a[data-wa].btn .ico.wa-g,a[data-wa].btn bdi.wa-num{color:var(--navy)}

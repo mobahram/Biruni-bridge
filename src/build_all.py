@@ -286,6 +286,9 @@ def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(html, encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)} ({len(html)} bytes)")
+    from build_guides import build_guides
+
+    build_guides()
 
 
 if __name__ == "__main__":
