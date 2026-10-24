@@ -1,10 +1,14 @@
 # Netlify configuration for birunibridge.com (static site, no build step)
+#
+# TEMPORARY MAINTENANCE. Production publishes only the maintenance/ folder.
+# Language pages, assets, and the previous redirects stay in git history.
+# To turn the site back on: restore this file from commit e912ef8
+# (publish = "." plus the language redirects) and push to main.
 [build]
-  publish = "."
+  publish = "maintenance"
   command = ""
 
-# --- Netlify default subdomain -> custom domain (exact host only: deploy-preview-N--birunibridge.netlify.app
-#     and branch--birunibridge.netlify.app are different hosts and keep working) ---
+# --- Netlify default subdomain -> custom domain ---
 [[redirects]]
   from = "https://birunibridge.netlify.app/*"
   to = "https://birunibridge.com/:splat"
@@ -18,90 +22,11 @@
   status = 301
   force = true
 
-# TEMPORARY MAINTENANCE. Every path serves closed.html and the real pages stay in the repo.
-# To turn the site back on: delete this block and the "maintenance headers" block below, then push to main.
-[[redirects]]
-  from = "/closed.html"
-  to = "/closed.html"
-  status = 200
+# Any path that is not a file in maintenance/ shows the closed page.
 [[redirects]]
   from = "/*"
-  to = "/closed.html"
+  to = "/index.html"
   status = 200
-  force = true
-
-# --- root: send visitors to their browser language (fallback English) ---
-[[redirects]]
-  from = "/"
-  to = "/ar/"
-  status = 302
-  force = true
-  conditions = {Language = ["ar"]}
-[[redirects]]
-  from = "/"
-  to = "/ru/"
-  status = 302
-  force = true
-  conditions = {Language = ["ru"]}
-[[redirects]]
-  from = "/"
-  to = "/es/"
-  status = 302
-  force = true
-  conditions = {Language = ["es"]}
-[[redirects]]
-  from = "/"
-  to = "/fr/"
-  status = 302
-  force = true
-  conditions = {Language = ["fr"]}
-[[redirects]]
-  from = "/"
-  to = "/ur/"
-  status = 302
-  force = true
-  conditions = {Language = ["ur"]}
-[[redirects]]
-  from = "/"
-  to = "/fa/"
-  status = 302
-  force = true
-  conditions = {Language = ["fa"]}
-[[redirects]]
-  from = "/"
-  to = "/en/"
-  status = 302
-  force = true
-
-# --- language 404 pages ---
-[[redirects]]
-  from = "/ar/*"
-  to = "/ar/404.html"
-  status = 404
-[[redirects]]
-  from = "/en/*"
-  to = "/en/404.html"
-  status = 404
-[[redirects]]
-  from = "/ru/*"
-  to = "/ru/404.html"
-  status = 404
-[[redirects]]
-  from = "/es/*"
-  to = "/es/404.html"
-  status = 404
-[[redirects]]
-  from = "/fr/*"
-  to = "/fr/404.html"
-  status = 404
-[[redirects]]
-  from = "/ur/*"
-  to = "/ur/404.html"
-  status = 404
-[[redirects]]
-  from = "/fa/*"
-  to = "/fa/404.html"
-  status = 404
 
 # --- security headers ---
 [[headers]]
@@ -113,27 +38,6 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()"
     Cross-Origin-Opener-Policy = "same-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://docs.google.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
-
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
-
-[[headers]]
-  for = "/media/*"
-  [headers.values]
-    Cache-Control = "public, max-age=2592000"
-
-[[headers]]
-  for = "/*/thank-you/*"
-  [headers.values]
-    X-Robots-Tag = "noindex"
-    Cache-Control = "no-store"
-
-# TEMPORARY MAINTENANCE headers. Remove together with the maintenance redirects above.
-[[headers]]
-  for = "/*"
-  [headers.values]
+    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
     X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "no-store"
