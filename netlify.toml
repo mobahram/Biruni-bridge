@@ -18,6 +18,18 @@
   status = 301
   force = true
 
+# TEMPORARY MAINTENANCE. Every path serves closed.html and the real pages stay in the repo.
+# To turn the site back on: delete this block and the "maintenance headers" block below, then push to main.
+[[redirects]]
+  from = "/closed.html"
+  to = "/closed.html"
+  status = 200
+[[redirects]]
+  from = "/*"
+  to = "/closed.html"
+  status = 503
+  force = true
+
 # --- root: send visitors to their browser language (fallback English) ---
 [[redirects]]
   from = "/"
@@ -117,4 +129,11 @@
   for = "/*/thank-you/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+    Cache-Control = "no-store"
+
+# TEMPORARY MAINTENANCE headers. Remove together with the maintenance redirects above.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "no-store"
