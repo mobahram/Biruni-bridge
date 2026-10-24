@@ -27,7 +27,7 @@
 [[redirects]]
   from = "/*"
   to = "/closed.html"
-  status = 503
+  status = 200
   force = true
 
 # --- root: send visitors to their browser language (fallback English) ---
