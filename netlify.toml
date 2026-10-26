@@ -19,7 +19,7 @@
   force = true
 
 # TURKEY ONLY. GeoIP country code TR (cookie override: nf_country=tr).
-# Visitors in Turkey get the closed page. Everyone else falls through to the normal site.
+# Visitors in Turkey get a 404 whose body is /unavailable/index.html. Everyone else falls through to the normal site.
 # To remove the block: delete this block and the unavailable/ folder, then push to main.
 [[redirects]]
   from = "/unavailable"
@@ -32,7 +32,7 @@
 [[redirects]]
   from = "/*"
   to = "/unavailable/index.html"
-  status = 200
+  status = 404
   force = true
   conditions = {Country = ["tr"]}
 
