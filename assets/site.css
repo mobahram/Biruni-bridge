@@ -499,7 +499,6 @@ h1,h2,h3,h4,h5,h6,h1 *,h2 *,h3 *,h4 *,h5 *,h6 *,p,p *,li,a,button,label,span,em,
 @media (max-width:640px){.btn{white-space:normal;text-align:center}.so .mark{inset-inline-end:0}}
 @media (max-width:640px){html[lang=ru] .hero h1,html[lang=es] .hero h1,html[lang=ru] .lp-hero h1,html[lang=es] .lp-hero h1{font-size:29px;line-height:1.25}}
 /* ===== phase 3: deploy build ===== */
-.doc .av.ph{background:#fff;overflow:hidden;padding:0}.doc .av.ph img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .compliance{grid-template-columns:auto auto 1fr}
 .hosp{display:flex;flex-direction:column;gap:6px}.hosp small{font-size:11.5px;color:var(--navy-70)}.hosp img{height:46px;width:auto}
 .acc{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--navy);border-inline-start:1px solid var(--line);padding-inline-start:16px}.acc img{height:48px;width:auto}

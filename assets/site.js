@@ -6,7 +6,7 @@ window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO
   function get(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');if(c&&Date.now()-c.ts<DAYS*864e5)return c}catch(e){}return null}
   function set(c){c.ts=Date.now();try{localStorage.setItem(KEY,JSON.stringify(c))}catch(e){}apply(c)}
   function apply(c){
-    if(c&&c.media){document.querySelectorAll('[data-map]').forEach(function(m){if(m.classList.contains('loaded'))return;var f=document.createElement('iframe');f.src='https://www.google.com/maps?q=Biruni+University+Hospital,+Halkal%C4%B1+Cd.+No:99,+K%C3%BC%C3%A7%C3%BCk%C3%A7ekmece,+%C4%B0stanbul&output=embed';f.loading='lazy';f.title='Map';f.referrerPolicy='no-referrer-when-downgrade';m.innerHTML='';m.appendChild(f);m.classList.add('loaded')})}
+    if(c&&c.media){document.querySelectorAll('[data-map]').forEach(function(m){if(m.classList.contains('loaded'))return;var f=document.createElement('iframe');f.src='https://www.google.com/maps?q=Istanbul&output=embed';f.loading='lazy';f.title='Map';f.referrerPolicy='no-referrer-when-downgrade';m.innerHTML='';m.appendChild(f);m.classList.add('loaded')})}
     if(c&&c.analytics&&typeof window.bbLoadAnalytics==='function'){window.bbLoadAnalytics()} /* no analytics configured yet */
   }
   var ck=document.getElementById('ck');

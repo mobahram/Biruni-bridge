@@ -79,6 +79,65 @@
   status = 302
   force = true
 
+
+# Retired doctor directories → medical centers (all languages).
+[[redirects]]
+  from = "/ar/doctors"
+  to = "/ar/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/ar/doctors/*"
+  to = "/ar/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/en/doctors"
+  to = "/en/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/en/doctors/*"
+  to = "/en/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/ru/doctors"
+  to = "/ru/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/ru/doctors/*"
+  to = "/ru/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/es/doctors"
+  to = "/es/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/es/doctors/*"
+  to = "/es/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/fr/doctors"
+  to = "/fr/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/fr/doctors/*"
+  to = "/fr/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/ur/doctors"
+  to = "/ur/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/ur/doctors/*"
+  to = "/ur/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/fa/doctors"
+  to = "/fa/medical-centers/"
+  status = 301
+[[redirects]]
+  from = "/fa/doctors/*"
+  to = "/fa/medical-centers/"
+  status = 301
+
 # --- language 404 pages ---
 [[redirects]]
   from = "/ar/*"
