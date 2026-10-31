@@ -38,7 +38,7 @@ img{max-width:100%;display:block}
 .topbar .wa .ico{color:var(--tq);width:18px;height:18px}
 .topbar .links{display:flex;gap:20px;margin-inline-start:auto;color:var(--navy-70)}
 .langs{display:flex;gap:2px;border:1px solid var(--line);border-radius:20px;padding:2px;direction:ltr;font-family:Inter;font-size:12px;font-weight:600}
-.langs a{padding:3px 9px;border-radius:16px;color:var(--navy-70)}
+.langs a{padding:3px 6px;border-radius:16px;color:var(--navy-70)}
 .langs a.on{background:var(--tq);color:#fff}
 /* header */
 header.main{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}

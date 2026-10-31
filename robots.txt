@@ -7,6 +7,8 @@ Disallow: /es/thank-you/
 Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
+Disallow: /tr/thank-you/
+Disallow: /pt/thank-you/
 
 User-agent: Googlebot
 Allow: /
@@ -17,6 +19,8 @@ Disallow: /es/thank-you/
 Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
+Disallow: /tr/thank-you/
+Disallow: /pt/thank-you/
 
 User-agent: Bingbot
 Allow: /
@@ -27,6 +31,8 @@ Disallow: /es/thank-you/
 Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
+Disallow: /tr/thank-you/
+Disallow: /pt/thank-you/
 
 User-agent: OAI-SearchBot
 Allow: /
@@ -37,6 +43,8 @@ Disallow: /es/thank-you/
 Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
+Disallow: /tr/thank-you/
+Disallow: /pt/thank-you/
 
 User-agent: ChatGPT-User
 Allow: /
@@ -47,6 +55,8 @@ Disallow: /es/thank-you/
 Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
+Disallow: /tr/thank-you/
+Disallow: /pt/thank-you/
 
 User-agent: PerplexityBot
 Allow: /
@@ -57,6 +67,8 @@ Disallow: /es/thank-you/
 Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
+Disallow: /tr/thank-you/
+Disallow: /pt/thank-you/
 
 User-agent: ClaudeBot
 Allow: /
@@ -67,6 +79,8 @@ Disallow: /es/thank-you/
 Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
+Disallow: /tr/thank-you/
+Disallow: /pt/thank-you/
 
 User-agent: Google-Extended
 Allow: /
@@ -77,6 +91,8 @@ Disallow: /es/thank-you/
 Disallow: /fr/thank-you/
 Disallow: /ur/thank-you/
 Disallow: /fa/thank-you/
+Disallow: /tr/thank-you/
+Disallow: /pt/thank-you/
 
 User-agent: GPTBot
 Disallow: /
