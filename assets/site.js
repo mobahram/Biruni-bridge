@@ -19,10 +19,27 @@ window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO
       else if(a==='save'){set({necessary:true,media:document.getElementById('ck-media').checked,analytics:document.getElementById('ck-an').checked});ck.hidden=true}});
     var c=get(); if(c){apply(c)}else{open(false)}}
   document.querySelectorAll('[data-ck-open]').forEach(function(b){b.addEventListener('click',function(){open(true)})});
+  /* GA4 events. The gtag snippet lives in each page head. Never send name, phone, email, message, or other personal or medical fields. */
+  function pageLanguage(){return document.documentElement.getAttribute('lang')||'';}
+  function track(name,params){try{if(typeof gtag==='function')gtag('event',name,params);}catch(err){}}
+  function linkLocation(el){
+    if(el.closest('.fab'))return 'floating';
+    if(el.closest('.topbar, header'))return 'header';
+    if(el.closest('#contact, #form, form[name=contact], .fcard, .wa-card, .ccards, .contacts, .repbox'))return 'contact_section';
+    if(el.closest('footer'))return 'footer';
+    if(el.closest('.hero'))return 'hero';
+    return 'content';
+  }
+  function trackLead(f){
+    var pref=f.elements.preferred_language;
+    track('generate_lead',{page_language:pageLanguage(),preferred_language:pref?String(pref.value||''):'',form_location:location.pathname});
+  }
   /* contact form: Netlify Forms submission stays the normal POST; a copy of the same fields goes to the Google Sheet (Apps Script) if configured */
   var SH=window.BB_SHEET||{},GF=window.BB_GFORM||{};
   document.querySelectorAll('form[name=contact]').forEach(function(f){
     f.addEventListener('submit',function(e){
+      var bot=f.querySelector('[name=bot-field]');
+      if(!f.getAttribute('data-sent')&&!(bot&&bot.value))trackLead(f);
       if((!SH.url&&!GF.action)||f.getAttribute('data-sent'))return;  /* nothing configured -> plain Netlify submit */
       var hp=f.querySelector('[name=bot-field]');if(hp&&hp.value)return;
       e.preventDefault();f.setAttribute('data-sent','1');
@@ -54,4 +71,13 @@ window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO
   var sb=document.querySelector('.search input');
   if(sb){var run=function(){var v=sb.value.trim().toLowerCase();document.querySelectorAll('.fqcat').forEach(function(cat){var any=false;cat.querySelectorAll('details').forEach(function(d){var ok=!v||d.textContent.toLowerCase().indexOf(v)>-1;d.classList.toggle('hide',!ok);if(ok)any=true;if(v&&ok)d.open=true});cat.classList.toggle('hide',!any)})};
     sb.addEventListener('input',run);var sbtn=document.querySelector(".search .btn");if(sbtn)sbtn.addEventListener('click',function(e){e.preventDefault();run()})}
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(!a)return;
+    var href=a.getAttribute('href')||'';
+    var params={page_language:pageLanguage(),link_location:linkLocation(a)};
+    if(/wa\.me|api\.whatsapp\.com/i.test(href)||a.classList.contains('fab'))track('whatsapp_click',params);
+    else if(/^mailto:/i.test(href))track('email_click',params);
+    else if(/^tel:/i.test(href))track('phone_click',params);
+  },true);
 })();
