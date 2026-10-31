@@ -1,13 +1,26 @@
 window.BB_SHEET={"url": "", "token": "VZ-efZ4eaLgslNm_f6zpL9wK_GE3069n"};
 window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO7Vg7qWUZeUc6Gv4maiXmIg7jQ2mDaPsTnets6g/formResponse", "entries": {"lang": "entry.382130787", "name": "entry.1048378349", "country": "entry.872875437", "phone": "entry.79439632", "email": "entry.1325751394", "specialty": "entry.1000958012", "kvkk_consent": "entry.45530695", "message": "entry.2119470668"}};
-/* Biruni Bridge site script: consent (no tracking before consent), mobile menu, FAQ search, consent-gated map */
+/* Biruni Bridge site script: cookie banner gates Microsoft Clarity and maps. Google Analytics stays in each page head and is not changed here. */
 (function(){
-  var KEY='bb_consent', DAYS=365;
+  var KEY='bb_consent', DAYS=365, CLARITY_ID='z6avp2toci', clarityLoaded=false;
+  /* Load Microsoft Clarity only after analytics consent. Does not call gtag. */
+  window.bbLoadAnalytics=function(){
+    if(!clarityLoaded){
+      clarityLoaded=true;
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", CLARITY_ID);
+    }
+    try{window.clarity('consent')}catch(e){}
+  };
+  function stopClarity(){
+    if(!clarityLoaded||typeof window.clarity!=='function')return;
+    try{window.clarity('consent', false)}catch(e){}
+  }
   function get(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');if(c&&Date.now()-c.ts<DAYS*864e5)return c}catch(e){}return null}
   function set(c){c.ts=Date.now();try{localStorage.setItem(KEY,JSON.stringify(c))}catch(e){}apply(c)}
   function apply(c){
     if(c&&c.media){document.querySelectorAll('[data-map]').forEach(function(m){if(m.classList.contains('loaded'))return;var f=document.createElement('iframe');f.src='https://www.google.com/maps?q=Istanbul&output=embed';f.loading='lazy';f.title='Map';f.referrerPolicy='no-referrer-when-downgrade';m.innerHTML='';m.appendChild(f);m.classList.add('loaded')})}
-    if(c&&c.analytics&&typeof window.bbLoadAnalytics==='function'){window.bbLoadAnalytics()} /* no analytics configured yet */
+    if(c&&c.analytics){window.bbLoadAnalytics()}
+    else{stopClarity()}
   }
   var ck=document.getElementById('ck');
   function open(settings){if(!ck)return;ck.hidden=false;var o=ck.querySelector('.ck-opts'),s=ck.querySelector('[data-ck=save]'),g=ck.querySelector('[data-ck=settings]');var c=get()||{};
