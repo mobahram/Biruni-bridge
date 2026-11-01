@@ -1,6 +1,6 @@
 window.BB_SHEET={"url": "", "token": "VZ-efZ4eaLgslNm_f6zpL9wK_GE3069n"};
 window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO7Vg7qWUZeUc6Gv4maiXmIg7jQ2mDaPsTnets6g/formResponse", "entries": {"lang": "entry.382130787", "name": "entry.1048378349", "country": "entry.872875437", "phone": "entry.79439632", "email": "entry.1325751394", "specialty": "entry.1000958012", "kvkk_consent": "entry.45530695", "message": "entry.2119470668"}};
-/* Biruni Bridge site script: cookie banner gates Microsoft Clarity and maps. Google Analytics stays in each page head and is not changed here. */
+/* Biruni Bridge site script: cookie banner gates Microsoft Clarity and maps. Google Analytics stays in each page head and is not changed here. Yandex Metrica is only in the English and Russian page heads and is not loaded here. */
 (function(){
   var KEY='bb_consent', DAYS=365, CLARITY_ID='z6avp2toci', clarityLoaded=false;
   /* Load Microsoft Clarity only after analytics consent. Does not call gtag. */
@@ -32,9 +32,12 @@ window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO
       else if(a==='save'){set({necessary:true,media:document.getElementById('ck-media').checked,analytics:document.getElementById('ck-an').checked});ck.hidden=true}});
     var c=get(); if(c){apply(c)}else{open(false)}}
   document.querySelectorAll('[data-ck-open]').forEach(function(b){b.addEventListener('click',function(){open(true)})});
-  /* GA4 events. The gtag snippet lives in each page head. Never send name, phone, email, message, or other personal or medical fields. */
+  /* GA4 events on every page. When ym exists (English and Russian pages), the same event name is sent as a Yandex Metrica goal. Never send name, phone, email, message, or other personal or medical fields. */
   function pageLanguage(){return document.documentElement.getAttribute('lang')||'';}
-  function track(name,params){try{if(typeof gtag==='function')gtag('event',name,params);}catch(err){}}
+  function track(name,params){
+    try{if(typeof gtag==='function')gtag('event',name,params);}catch(err){}
+    try{if(typeof ym==='function')ym(113975813,'reachGoal',name);}catch(err){}
+  }
   function linkLocation(el){
     if(el.closest('.fab'))return 'floating';
     if(el.closest('.topbar, header'))return 'header';
@@ -92,5 +95,6 @@ window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO
     if(/wa\.me|api\.whatsapp\.com/i.test(href)||a.classList.contains('fab'))track('whatsapp_click',params);
     else if(/^mailto:/i.test(href))track('email_click',params);
     else if(/^tel:/i.test(href))track('phone_click',params);
+    else if(/^(?:https?:)?\/\/(?:www\.)?(?:t\.me|telegram\.me)\//i.test(href)||/^tg:\/\//i.test(href))track('telegram_click',params);
   },true);
 })();
