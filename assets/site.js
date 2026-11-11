@@ -87,6 +87,46 @@ window.BB_GFORM={"action": "https://docs.google.com/forms/d/e/1FAIpQLScw8zb6VkHO
   var sb=document.querySelector('.search input');
   if(sb){var run=function(){var v=sb.value.trim().toLowerCase();document.querySelectorAll('.fqcat').forEach(function(cat){var any=false;cat.querySelectorAll('details').forEach(function(d){var ok=!v||d.textContent.toLowerCase().indexOf(v)>-1;d.classList.toggle('hide',!ok);if(ok)any=true;if(v&&ok)d.open=true});cat.classList.toggle('hide',!any)})};
     sb.addEventListener('input',run);var sbtn=document.querySelector(".search .btn");if(sbtn)sbtn.addEventListener('click',function(e){e.preventDefault();run()})}
+  /* WhatsApp prefill. The literal tag "(Biruni Bridge)" follows the greeting, then the page name, then a neutral line. Page name is document.title before the site-name separator; a title that leads with the brand is the homepage. Static hrefs are the no-JS fallback. Keep this copy in sync with src/common.py. */
+  var WA_NUMBER='905368425597';
+  var WA_COPY={
+    ar:{hello:'مرحباً',line:'أريد الاستفسار',home:'الرئيسية'},
+    en:{hello:'Hello',line:"I'd like to ask about…",home:'Home'},
+    es:{hello:'Hola',line:'Quisiera hacer una consulta',home:'Inicio'},
+    fr:{hello:'Bonjour',line:'Je souhaite me renseigner',home:'Accueil'},
+    fa:{hello:'سلام',line:'می‌خواهم سؤال کنم',home:'خانه'},
+    pt:{hello:'Olá',line:'Gostaria de obter informações',home:'Início'},
+    ru:{hello:'Здравствуйте',line:'Хочу уточнить информацию',home:'Главная'},
+    tr:{hello:'Merhaba',line:'Bilgi almak istiyorum',home:'Ana sayfa'},
+    ur:{hello:'سلام',line:'میں استفسار کرنا چاہتا ہوں',home:'ہوم'}
+  };
+  var WA_BRANDS=['Biruni Bridge','بيروني بريدج','بیرونی بریج'];
+  function waCode(){
+    var raw=(document.documentElement.getAttribute('lang')||'en').toLowerCase().split('-')[0];
+    return WA_COPY[raw]?raw:'en';
+  }
+  function waPageName(){
+    var title=(document.title||'').replace(/\s+/g,' ').trim();
+    var home=WA_COPY[waCode()].home;
+    var found=-1;
+    for(var i=0;i<WA_BRANDS.length;i++){
+      var at=title.indexOf(WA_BRANDS[i]);
+      if(at>=0&&(found<0||at<found))found=at;
+    }
+    if(found<0)return title||home;
+    if(found===0)return home;
+    var before=title.slice(0,found).replace(/[\s|–—:：-]+$/,'').trim();
+    return before||home;
+  }
+  function applyWhatsAppLinks(){
+    var copy=WA_COPY[waCode()];
+    var msg=copy.hello+' (Biruni Bridge) – '+waPageName()+': '+copy.line;
+    var href='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
+    document.querySelectorAll('a[href*="wa.me/'+WA_NUMBER+'"]').forEach(function(a){
+      a.setAttribute('href',href);
+    });
+  }
+  applyWhatsAppLinks();
   document.addEventListener('click',function(e){
     var a=e.target&&e.target.closest?e.target.closest('a'):null;
     if(!a)return;

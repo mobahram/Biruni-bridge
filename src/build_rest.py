@@ -27,7 +27,7 @@ from build_guides import (  # noqa: E402
     _retarget,
     _upsert_sitemap,
 )
-from common import SITE  # noqa: E402
+from common import SITE, stamp_whatsapp_links  # noqa: E402
 from rest_i18n import TRANSLATIONS  # noqa: E402
 
 BUILD = ROOT / "build"
@@ -228,7 +228,7 @@ def _render(lang: str, slug: str) -> str:
         raise SystemExit(f"form lang missing for {lang}/{slug}")
     if text.count("<main>") != 1 or text.count("</main>") != 1:
         raise SystemExit(f"unbalanced main for {lang}/{slug}")
-    return text
+    return stamp_whatsapp_links(text)
 
 
 KEEP_EXACT = {

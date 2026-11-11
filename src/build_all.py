@@ -17,7 +17,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from common import CART_SLUG, EMAIL, LANGS, SITE, WHATSAPP_DISPLAY, WHATSAPP_WA_ME  # noqa: E402
+from common import (  # noqa: E402
+    CART_SLUG,
+    EMAIL,
+    LANGS,
+    SITE,
+    WHATSAPP_DISPLAY,
+    WHATSAPP_WA_ME,
+    stamp_whatsapp_links,
+    strip_whatsapp_text,
+)
 from qa_cart import DESCRIPTION, FAQ, H1, INTRO, TITLE  # noqa: E402
 
 BUILD = ROOT / "build"
@@ -192,7 +201,7 @@ def _article(chrome: str) -> str:
 
 
 def _check(html: str) -> None:
-    lowered = html.casefold()
+    lowered = strip_whatsapp_text(html).casefold()
     for token in FORBIDDEN:
         if token.casefold() in lowered:
             raise SystemExit(f"forbidden content: {token}")
@@ -275,6 +284,7 @@ def render() -> str:
     if footer_old not in html:
         raise SystemExit("Urdu footer marker missing")
     html = html.replace(footer_old, footer_new, 1)
+    html = stamp_whatsapp_links(html)
     _check(html)
     if set(LANGS) != {"ar", "en", "ru", "es", "fr", "ur", "fa"}:
         raise SystemExit("language list drifted")
