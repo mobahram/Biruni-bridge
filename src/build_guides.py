@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from common import LANGS, SITE  # noqa: E402
+from common import LANGS, SITE, stamp_whatsapp_links, strip_whatsapp_text  # noqa: E402
 from guide_copy import (  # noqa: E402
     CELL,
     CELL_LANGS,
@@ -80,7 +80,7 @@ def _upload_svg() -> str:
 
 def _forbid(fragment: str, label: str) -> None:
     visible = re.sub(r'\sstyle="[^"]*"', "", fragment)
-    low = visible.lower()
+    low = strip_whatsapp_text(visible).lower()
     for word in FORBIDDEN:
         if word in low:
             raise SystemExit(f"{label} contains forbidden token {word}")
@@ -584,6 +584,7 @@ def _assemble(lang: str, slug: str, page: dict, article: str, crumbs: list[tuple
         + "</div></div></section>"
     )
     html = head + "</head>" + body + "<main>" + article + contact + "</main>" + suffix
+    html = stamp_whatsapp_links(html)
     _forbid(article + page["title"] + page["description"], f"{lang}/{slug}")
     if html.count("<main>") != 1 or html.count("</main>") != 1:
         raise SystemExit(f"unbalanced main for {lang}/{slug}")
@@ -860,7 +861,7 @@ def install_guides() -> None:
             if text.count(who) != 1 or text.count(final) != 1:
                 raise SystemExit(f"oncology anchors not unique in {lang}")
             text = text.replace(who, docs + who, 1).replace(final, rel + final, 1)
-            path.write_text(text, encoding="utf-8")
+            path.write_text(stamp_whatsapp_links(text), encoding="utf-8")
 
     sitemap_path = ROOT / "sitemap.xml"
     sitemap = sitemap_path.read_text(encoding="utf-8")
