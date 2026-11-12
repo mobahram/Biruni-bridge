@@ -92,6 +92,32 @@
   force = true
 
 
+# Treatment portfolio: English lives under /en/; no TR/PT originals in the package.
+[[redirects]]
+  from = "/treatment-portfolio"
+  to = "/en/treatment-portfolio/"
+  status = 301
+[[redirects]]
+  from = "/treatment-portfolio/*"
+  to = "/en/treatment-portfolio/"
+  status = 301
+[[redirects]]
+  from = "/tr/treatment-portfolio"
+  to = "/en/treatment-portfolio/"
+  status = 301
+[[redirects]]
+  from = "/tr/treatment-portfolio/*"
+  to = "/en/treatment-portfolio/"
+  status = 301
+[[redirects]]
+  from = "/pt/treatment-portfolio"
+  to = "/en/treatment-portfolio/"
+  status = 301
+[[redirects]]
+  from = "/pt/treatment-portfolio/*"
+  to = "/en/treatment-portfolio/"
+  status = 301
+
 # Retired doctor directories → medical centers (all languages).
 [[redirects]]
   from = "/ar/doctors"

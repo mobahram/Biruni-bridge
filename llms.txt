@@ -1,0 +1,14 @@
+# Biruni Bridge
+
+Biruni Bridge (https://birunibridge.com/) coordinates international patient care with partner hospitals in Istanbul. Biruni University Hospital is a primary partner.
+
+## Pages
+
+- [Biruni Hospital Treatment & Service Portfolio](https://birunibridge.com/en/treatment-portfolio/): Full list of Biruni University Hospital treatments by specialty (CAR-T, transplantation, oncology, neurosurgery, cardiac, urology, orthopedics, ENT, GI, pediatrics, rehabilitation).
+- [دليل علاجات وخدمات مستشفى بيروني](https://birunibridge.com/ar/treatment-portfolio/): AR version.
+- [Portfolio de traitements de l'hôpital Biruni](https://birunibridge.com/fr/treatment-portfolio/): FR version.
+- [Портфолио лечения больницы Biruni](https://birunibridge.com/ru/treatment-portfolio/): RU version.
+- [فهرست درمان‌ها و خدمات بیمارستان Biruni](https://birunibridge.com/fa/treatment-portfolio/): FA version.
+- [Portafolio de tratamientos del Hospital Biruni](https://birunibridge.com/es/treatment-portfolio/): ES version.
+- [بیرونی ہسپتال کے علاج کی فہرست](https://birunibridge.com/ur/treatment-portfolio/): UR version.
+- [Portfolio PDF](https://birunibridge.com/files/biruni-hospital-treatment-service-portfolio.pdf): 4-page PDF version (English).
